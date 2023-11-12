@@ -1,5 +1,11 @@
+import Square from "./components/Square";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <Square />
+    </>
+  );
 };
 
 export default App;
