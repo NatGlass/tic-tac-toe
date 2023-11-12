@@ -5,10 +5,20 @@ const Board = () => {
   // Create an array of 9 elements and set their initial value to null
   const [squares, setSquares] = useState(Array(9).fill(null));
 
+  // Determines which players turn it is (x goes first)
+  const [xIsNext, setXIsNext] = useState(true);
+
   function handleClick(index: number) {
+    // Prevent the value of a square being overwritten if it already has a value
+    if (squares[index]) {
+      return;
+    }
     const nextSquares = squares.slice();
-    nextSquares[index] = "X";
+
+    xIsNext ? (nextSquares[index] = "X") : (nextSquares[index] = "O");
+
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
