@@ -1,9 +1,9 @@
-import Square from "./components/Square";
+import Board from "./components/Board";
 
 const App = () => {
   return (
     <>
-      <Square />
+      <Board />
     </>
   );
 };
