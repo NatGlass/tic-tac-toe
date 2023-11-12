@@ -1,13 +1,6 @@
-import { useState } from "react";
 import Square from "./Square";
 
-const Board = () => {
-  // Create an array of 9 elements and set their initial value to null
-  const [squares, setSquares] = useState(Array(9).fill(null));
-
-  // Determines which players turn it is (x goes first)
-  const [xIsNext, setXIsNext] = useState(true);
-
+const Board = ({ xIsNext, squares, onPlay }) => {
   const winner = calculateWinner(squares);
   let status;
 
@@ -24,8 +17,7 @@ const Board = () => {
 
     xIsNext ? (nextSquares[index] = "X") : (nextSquares[index] = "O");
 
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
 
   return (
